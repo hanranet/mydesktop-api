@@ -1,7 +1,16 @@
 const express = require('express');
-console.log(require('dotenv').config())
+require('dotenv').config();
+const logger = require('./middleware/logger');
+
+// Route files
+const receipts = require('./routes/receipts');
 
 const app = express();
+
+app.use(logger);
+
+// Mount routers
+app.use('/api/v1/receipts', receipts);
 
 const PORT = process.env.PORT || 5000;
 
