@@ -2,6 +2,10 @@ const express = require('express');
 require('dotenv').config();
 const logger = require('./middleware/logger');
 const morgan = require('morgan');
+const connectDB = require('./db');
+
+// Connect to database
+connectDB();
 
 // Route files
 const receipts = require('./routes/receipts');
